@@ -27,17 +27,24 @@
 
             <form action="enterApp" method="post" class="intro-description">
 
-                <div class="user-name" style="margin-bottom: 10px;">
-                    <input type="text" name="userName" placeholder="User name" required>
+                <div class="login-input">
+                    <h2 style="text-align: left!important; margin: 2px;">User name</h2>
+                    <div style="display: flex;">
+                        <img src="../../public/plantillas/imgs/user.png" style="height: 20px;">
+                        <input type="text" name="userName" class="input-design" placeholder="User name" required>
+                    </div>
                 </div>
-                <div class="user-password" style="margin-bottom: 10px;">
-                    <input type="password" name="userPassword" placeholder="Password" required>
+                <div class="login-input">
+                    <h2 style="text-align: left!important; margin: 2px;">Password</h2>
+                    <div style="display: flex;">
+                        <img src="../../public/plantillas/imgs/padlock.png" style="height: 20px;">
+                        <input type="password" name="userPassword" class="input-design" placeholder="···········" required>
+                    </div>
                 </div>
 
-                <div class="logBtn" style="width: inherit;">
-                    <button type="submit">LOGIN</button>
+                <div>
+                    <button class="btn" type="submit">LOGIN</button>
                 </div>
-
 
             </form>
 

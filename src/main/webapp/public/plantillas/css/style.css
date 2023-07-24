@@ -10,16 +10,14 @@ body {
 }
 
 .middle-box {
-    background-color: aliceblue !important;
+    background-color: rgb(244, 201, 201) !important;
     width:300px;
     border-radius: 100px;
     padding: 50px;
 }
 
 .intro-description {
-    width: inherit;
     border-bottom: 1px solid black;
-    padding-bottom: 20px;
 }
 
 .name-description {
@@ -33,10 +31,27 @@ body {
 .btn {
     border-radius: 10px;
     font-size: 30px;
-    width: inherit;
+    width: 100%;
     color: brown;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .btn:focus {
     box-shadow: none !important;
+}
+
+.input-design {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 18px;
+}
+
+.login-input {
+    width: 100%;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
 }
