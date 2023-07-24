@@ -7,6 +7,7 @@ body {
     place-content: center;
     text-align: center;
     padding-top: 5%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .middle-box {
@@ -32,13 +33,18 @@ body {
     border-radius: 10px;
     font-size: 30px;
     width: 100%;
-    color: brown;
+    color: white;
     margin-bottom: 10px;
     cursor: pointer;
+    background-color: navy;
 }
 
 .btn:focus {
     box-shadow: none !important;
+}
+
+.btn:hover {
+    background-color: indigo;
 }
 
 .input-design {
