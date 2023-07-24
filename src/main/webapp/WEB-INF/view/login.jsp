@@ -24,11 +24,22 @@
             <div class="intro-title" style="margin-left: 2%; font-size: 20px !important; letter-spacing: 0px !important;">
                 <h1 class="logo-name">SOCCERAPP</h1>
             </div>
-            <div class="intro-description">
-                <h3 class="name-description">Soccer Management App</h3>
-                <p class="description">Welcome to the managemenet soccer app. If you are a soccer coach, you are in the correct place!</p>
-                <button id="idBtnEntrar" class="btn">ENTRAR</button>
-            </div>
+
+            <form action="enterApp" method="post" class="intro-description">
+
+                <div class="user-name" style="margin-bottom: 10px;">
+                    <input type="text" name="userName" placeholder="User name" required>
+                </div>
+                <div class="user-password" style="margin-bottom: 10px;">
+                    <input type="password" name="userPassword" placeholder="Password" required>
+                </div>
+
+                <div class="logBtn" style="width: inherit;">
+                    <button type="submit">LOGIN</button>
+                </div>
+
+
+            </form>
 
             <div>
                 <h5 style="font-weight: 200; font-style: italic; margin:10px"> Camilo Jené - 2023</h5>

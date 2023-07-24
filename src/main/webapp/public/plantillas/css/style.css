@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(155, 47, 47);
+}
+
+.intro {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.middle-box {
+    background-color: aliceblue !important;
+    width:300px;
+    border-radius: 100px;
+    padding: 50px;
+}
+
+.intro-description {
+    width: inherit;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}
+
+.name-description {
+    text-align: center !important;
+}
+
+.description {
+    text-align: justify;
+}
+
+.btn {
+    border-radius: 10px;
+    font-size: 30px;
+    width: inherit;
+    color: brown;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
