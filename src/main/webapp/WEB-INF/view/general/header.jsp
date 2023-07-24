@@ -18,10 +18,10 @@
 
 <body>
 
-    <div class="header" style="display:grid; background-color: navy; opacity: 80%;">
+    <div class="header" style="background-color: navy; opacity: 80%;">
 
-        <div class="intro-title" style="font-size: 20px !important; letter-spacing: 3px !important; padding-left: 10%;">
-            <h1 class="logo-name" style="color: white;">SOCCERAPP</h1>
+        <div class="intro-title" style="font-size: 20px !important; letter-spacing: 3px !important; padding: 40px;">
+            <h1 class="logo-name" style="color: white;margin: 0;">SOCCERAPP</h1>
         </div>
 
     </div>
