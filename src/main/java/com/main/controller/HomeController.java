@@ -41,7 +41,7 @@ public class HomeController {
 			log.error("User: " + userName + " " + userPassword + " doesn't exist.");
 		}
 		
-		return "WEB-INF/view/login.jsp";
+		return "WEB-INF/view/principal.jsp";
 	}
 
     
