@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.main.user.User;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -30,16 +32,22 @@ public class HomeController {
 
 	// Logging action
 	@RequestMapping("/enterApp")
-	public String enterApp(@RequestParam String userName, @RequestParam String userPassword) {
+	public String enterApp(@RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
 		log.info("enterApp()");
 
-		if (userName.equals("Camilo") && userPassword.equals("1234")) {
-			log.info("Creating user object....");
-			u = new User(userName);
-			log.info("Created " + u);
-		} else {
+		if (!userName.equals("Camilo") || !userPassword.equals("1234")) {
 			log.error("User: " + userName + " " + userPassword + " doesn't exist.");
+			return "redirect:/";
 		}
+
+
+		log.info("Creating user object....");
+		u = new User(userName);
+		log.info("Created " + u);
+
+		// Envía datos al HTML.
+		HttpSession session = req.getSession();
+		session.setAttribute("userName", u.getName());
 		
 		return "WEB-INF/view/principal.jsp";
 	}

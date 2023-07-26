@@ -21,12 +21,12 @@
     <div class="intro">
         <div class="middle-box">
 
-            <div class="intro-title" style="font-size: 20px !important; letter-spacing: 3px !important;">
+            <div class="intro-title" style="font-size: 20px !important; letter-spacing: 3px !important;margin:inherit;">
                 <h1 class="logo-name" style="color: navy;">SOCCERAPP</h1>
             </div>
 
             <div>
-                <h1 style="font-size: 20px; color: navy; opacity: 60%;">LOGIN</h1>
+                <h1 style="font-size: 20px; color: navy; opacity: 60%; margin: inherit!important;">LOGIN</h1>
             </div>
 
             <form action="enterApp" method="post" class="intro-description">

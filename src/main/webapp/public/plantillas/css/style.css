@@ -1,6 +1,9 @@
-body {
-    background-color: rgb(180, 73, 73);
+* {
     margin: 0;
+}
+
+body {
+    background-color: rgb(188, 102, 102);
 }
 
 .intro {
@@ -16,21 +19,26 @@ body {
     width:300px;
     border-radius: 100px;
     padding: 50px;
+    margin: 30px;
 }
 
 .intro-description {
+    margin: 10px;
     border-bottom: 1px solid black;
 }
 
 .name-description {
+    margin: inherit;
     text-align: center !important;
 }
 
 .description {
+    margin: inherit;
     text-align: justify;
 }
 
 .btn {
+    margin-top: inherit;
     border-radius: 10px;
     font-size: 30px;
     width: 100%;
