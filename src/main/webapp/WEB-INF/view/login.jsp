@@ -32,10 +32,10 @@
             <form action="enterApp" method="post" class="intro-description">
 
                 <div class="login-input">
-                    <h2 style="text-align: left!important; margin: 2px;">User name</h2>
+                    <h2 style="text-align: left!important; margin: 2px;">Email</h2>
                     <div style="display: flex;">
                         <img src="../../public/plantillas/imgs/user.png" style="height: 20px;">
-                        <input type="text" name="userName" class="input-design" placeholder="User name" required>
+                        <input type="text" name="email" class="input-design" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="login-input">

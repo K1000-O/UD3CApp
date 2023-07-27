@@ -47,12 +47,12 @@ public class HomeController {
 
 	// Logging action
 	@RequestMapping("/enterApp")
-	public String enterApp(@RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
+	public String enterApp(@RequestParam String email, @RequestParam String userPassword, HttpServletRequest req) {
 		log.info("enterApp()");
-		List<User> list = userRepository.findUser(userName, userPassword);
+		List<User> list = userRepository.findUser(email, userPassword);
 
 		if (list.size() == 0) {
-			log.error("User '" + userName +  "' or password incorrect");
+			log.error("User '" + email +  "' or password incorrect");
 			return "redirect:/";
 		}
 
@@ -65,15 +65,12 @@ public class HomeController {
 		HttpSession session = req.getSession();
 		session.setAttribute("userName", u.getName());
 
-		// u.setId(list.size() + 1);
-		// userRepository.insert(u.getName(), u.getId()); // Registrar usuario.
-
 		
 		return "WEB-INF/view/principal.jsp";
 	}
 
 	@RequestMapping("/registerUser")
-	public String registerUser(@RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
+	public String registerUser(@RequestParam String email, @RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
 		log.info("registerUser()");
 
 		if (userRepository.userExist(userName) > 0) {
@@ -82,7 +79,7 @@ public class HomeController {
 		}
 
 		Integer id = userRepository.findAll().size() + 1;
-		userRepository.insert(userName, id, userPassword); // Registrar usuario.
+		userRepository.insert(userName, id, userPassword, email); // Registrar usuario.
 
 
 		return "WEB-INF/view/login.jsp";
