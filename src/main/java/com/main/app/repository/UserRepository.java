@@ -11,15 +11,21 @@ import org.springframework.stereotype.Repository;
 
 import com.main.app.user.User;
 
+import jakarta.transaction.Transactional;
+
 @Repository
 @EnableJpaRepositories
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(value = "INSERT INTO public.test(name, id) VALUES (:userName, :id, crypt(:pass, gen_salt('md5')))", nativeQuery = true)
+    @Modifying // Es un update/delete query.
+    @Transactional // Uses for INSERT.
+    @Query(value = "INSERT INTO public.test(name, id, password) VALUES (:userName, :id, crypt(:pass, gen_salt('md5')))", nativeQuery = true)
     public abstract void insert(@Param("userName") String name, @Param("id") Integer id, @Param("pass") String password);
 
     @Query(value = "SELECT * FROM public.test t WHERE t.name=:userName AND t.password = crypt(:pass, t.password)", nativeQuery = true)
     public abstract List<User> findUser(@Param("userName") String name, @Param("pass") String password);
 
+    @Query(value = "SELECT COUNT(*) FROM public.test t WHERE t.name=:userName", nativeQuery = true)
+    public abstract Integer userExist(@Param("userName") String name);
 
 }

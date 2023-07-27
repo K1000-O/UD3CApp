@@ -1,6 +1,5 @@
 package com.main.app.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +38,13 @@ public class HomeController {
 		return "WEB-INF/view/login.jsp";
 	}
 
+	@RequestMapping("/register")
+	public String register() {
+		log.info("register()");
+		
+		return "WEB-INF/view/register.jsp";
+	}
+
 	// Logging action
 	@RequestMapping("/enterApp")
 	public String enterApp(@RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
@@ -66,5 +72,20 @@ public class HomeController {
 		return "WEB-INF/view/principal.jsp";
 	}
 
+	@RequestMapping("/registerUser")
+	public String registerUser(@RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
+		log.info("registerUser()");
+
+		if (userRepository.userExist(userName) > 0) {
+			log.error("User exists");
+			return "redirect:/";
+		}
+
+		Integer id = userRepository.findAll().size() + 1;
+		userRepository.insert(userName, id, userPassword); // Registrar usuario.
+
+
+		return "WEB-INF/view/login.jsp";
+	}
     
 }

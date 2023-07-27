@@ -26,10 +26,10 @@
             </div>
 
             <div>
-                <h1 style="font-size: 20px; color: navy; opacity: 60%; margin: inherit!important;">LOGIN</h1>
+                <h1 style="font-size: 20px; color: navy; opacity: 60%; margin: inherit!important;">REGISTER USER</h1>
             </div>
 
-            <form action="enterApp" method="post" class="intro-description">
+            <form action="registerUser" method="post" class="intro-description">
 
                 <div class="login-input">
                     <h2 style="text-align: left!important; margin: 2px;">User name</h2>
@@ -47,15 +47,10 @@
                 </div>
 
                 <div>
-                    <button class="btn" type="submit">LOGIN</button>
+                    <button class="btn" type="submit">REGISTER</button>
                 </div>
 
-                <div class="a-reg" style="margin-bottom: 10px;">
-                    <a href="/register">Create an account</a>
-                </div>
-                
             </form>
-            
 
             <div>
                 <h5 style="font-weight: 200; font-style: italic; margin:10px"> Camilo Jené - 2023</h5>
