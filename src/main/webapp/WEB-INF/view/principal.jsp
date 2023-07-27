@@ -22,30 +22,43 @@
     <jsp:include page="general/header.jsp"></jsp:include>
     <!-- MENÚ SUPERIOR -->
 
-    <div class="wrapper" style="overflow: visible;">
+    <div class="wrapper" style="display: flex; flex-wrap: nowrap;">
+        
+        <div class="principal-nav">
+            <!-- MENÚ NAV -->
+            <jsp:include page="general/lateral-nav.jsp"></jsp:include>
+            <!-- MENÚ NAV -->
+        </div>
 
-        <div class="app-functions" style="display: flex; justify-content: center;">
+        <div class="app-functions">
 
-            <div class="center-panel" style="display: flex;  width: fit-content; background-color: white; border-radius: 20px; justify-content: space-around; flex-wrap: wrap; margin: 40px;">
+            <div class="center-panel">
 
-                <div class="func" style="margin: 20px; background-color: bisque; padding: 10px; width: fit-content; border-radius: 10px;">
-                    <a href="google.es" style="width: 200px; color: navy; text-decoration: none;" >
-                        <img src="../../public/plantillas/imgs/padlock.png" style="width: inherit;"></img>
-                        <h1 style="margin: 0; font-size: 30px; text-align: center;">FUNCTION</h1>
+                <div class="func">
+                    <a href="google.es" class="function-panel" >
+                        <img src="../../public/plantillas/imgs/football-players.png"></img>
+                        <h1>JUGADORES</h1>
                     </a>
                 </div>
 
-                <div class="func" style="margin: 20px; background-color: bisque; padding: 10px; width: fit-content; border-radius: 10px;">
-                    <a href="google.es" style="width: 200px; color: navy; text-decoration: none;" >
-                        <img src="../../public/plantillas/imgs/padlock.png" style="width: inherit;"></img>
-                        <h1 style="margin: 0; font-size: 30px; text-align: center;">FUNCTION</h1>
+                <div class="func">
+                    <a href="google.es" class="function-panel">
+                        <img src="../../public/plantillas/imgs/traffic-cone.png"></img>
+                        <h1>ENTRENAMIENTOS</h1>
                     </a>
                 </div>
 
-                <div class="func" style="margin: 20px; background-color: bisque; padding: 10px; width: fit-content; border-radius: 10px;">
-                    <a href="google.es" style="width: 200px; color: navy; text-decoration: none;" >
-                        <img src="../../public/plantillas/imgs/padlock.png" style="width: inherit;"></img>
-                        <h1 style="margin: 0; font-size: 30px; text-align: center;">FUNCTION</h1>
+                <div class="func">
+                    <a href="google.es" class="function-panel">
+                        <img src="../../public/plantillas/imgs/goal.png"></img>
+                        <h1>PARTIDOS</h1>
+                    </a>
+                </div>
+
+                <div class="func">
+                    <a href="google.es" class="function-panel">
+                        <img src="../../public/plantillas/imgs/calendar.png"></img>
+                        <h1>CALENDARIO</h1>
                     </a>
                 </div>
 
