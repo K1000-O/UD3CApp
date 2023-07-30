@@ -1,6 +1,9 @@
 package com.main.app.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.main.app.repository.*;
+import com.main.app.user.Team;
 import com.main.app.user.User;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
@@ -69,7 +74,8 @@ public class HomeController {
 		HttpSession session = req.getSession();
 		session.setAttribute("userName", u.getName());
 
-		
+		session.setAttribute("teams", teamRepository.findTeams(u.getId()));
+
 		return "WEB-INF/view/principal.jsp";
 	}
 

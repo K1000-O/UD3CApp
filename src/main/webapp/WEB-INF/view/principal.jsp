@@ -1,4 +1,7 @@
-
+<%@ page import="com.main.app.user.Team" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.io.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,17 +38,22 @@
             </div>
 
             <div class="team-list">
-                <button class="choose-team">
-                    <h1>PRUEBA</h1>
-                </button>
+                <%
+                    ArrayList<Team> lt = (ArrayList<Team>)request.getAttribute("teams");
 
-                <button class="choose-team">
-                    <h1>PRUEBA DOS</h1>
-                </button>
-
-                <button class="choose-team">
-                    <h1>PRUEBA TRES</h1>
-                </button>
+                    for (Team t : lt) {
+                %>
+                        <button class="choose-team">
+                            <h1><%=t.getTeam()%></h1>
+                        </button>
+                    <%
+                    }
+                    %>
+                <c:forEach items="teams" var="t">
+                    <button class="choose-team">
+                        <h1>${t}</h1>
+                    </button>
+                </c:forEach>
             </div>
 
         </div>
@@ -54,7 +62,6 @@
 
     <!-- Script -->
     <script type="text/javascript">
-
     </script>
 
 </body>
