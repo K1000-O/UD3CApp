@@ -180,3 +180,49 @@ body {
 .func :hover{
     opacity: 80%;
 }
+
+/**
+
+    PRINCIPAL.JSP
+
+*/
+.app-principal {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2%;
+    width: 80%;
+}
+
+.CENTER-PRINCIPAL {
+    display: flex;
+    justify-content: center;
+    min-width: fit-content;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.team-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 10px;
+    height: fit-content;
+}
+
+.choose-team {
+    width: 80%;
+    height: 80px;
+    margin: 10px;
+    border-radius: inherit; 
+    cursor: pointer;
+    background-color: bisque;
+    border-style: none;
+}
+
+.team-list :hover {
+    background-color: rgb(162, 206, 212);
+}

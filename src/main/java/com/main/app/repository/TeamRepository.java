@@ -8,12 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 
-import com.main.app.user.User;
+import com.main.app.user.*;
 
 import jakarta.transaction.Transactional;
 
 @EnableJpaRepositories
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface TeamRepository extends JpaRepository<Team, Long> {
 
     @Modifying // Es un update/delete query.
     @Transactional // Uses for INSERT.

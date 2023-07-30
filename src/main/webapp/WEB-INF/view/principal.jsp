@@ -24,44 +24,28 @@
 
     <div class="wrapper" style="display: flex; flex-wrap: nowrap;">
         
-        <div class="principal-nav">
-            <!-- MENÚ NAV -->
-            <jsp:include page="general/lateral-nav.jsp"></jsp:include>
-            <!-- MENÚ NAV -->
-        </div>
-
         <div class="app-functions">
 
-            <div class="center-panel">
+            <div class="app-principal">
 
-                <div class="func">
-                    <a href="google.es" class="function-panel" >
-                        <img src="../../public/plantillas/imgs/football-players.png"></img>
-                        <h1>JUGADORES</h1>
-                    </a>
+            <div class="CENTER-PRINCIPAL">
+                <div>
+                    <h1 style="padding: 10px"> ESCOGER EQUIPO </h1>
                 </div>
+            </div>
 
-                <div class="func">
-                    <a href="google.es" class="function-panel">
-                        <img src="../../public/plantillas/imgs/traffic-cone.png"></img>
-                        <h1>ENTRENAMIENTOS</h1>
-                    </a>
-                </div>
+            <div class="team-list">
+                <button class="choose-team">
+                    <h1>PRUEBA</h1>
+                </button>
 
-                <div class="func">
-                    <a href="google.es" class="function-panel">
-                        <img src="../../public/plantillas/imgs/goal.png"></img>
-                        <h1>PARTIDOS</h1>
-                    </a>
-                </div>
+                <button class="choose-team">
+                    <h1>PRUEBA DOS</h1>
+                </button>
 
-                <div class="func">
-                    <a href="google.es" class="function-panel">
-                        <img src="../../public/plantillas/imgs/calendar.png"></img>
-                        <h1>CALENDARIO</h1>
-                    </a>
-                </div>
-
+                <button class="choose-team">
+                    <h1>PRUEBA TRES</h1>
+                </button>
             </div>
 
         </div>

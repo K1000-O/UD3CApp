@@ -29,7 +29,7 @@
                 <h1 style="font-size: 20px; color: navy; opacity: 60%; margin: inherit!important;">LOGIN</h1>
             </div>
 
-            <form action="enterApp" method="post" class="intro-description">
+            <form action="principal" method="post" class="intro-description">
 
                 <div class="login-input">
                     <h2 style="text-align: left!important; margin: 2px;">Email</h2>

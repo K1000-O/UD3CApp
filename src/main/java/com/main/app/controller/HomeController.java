@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.main.app.repository.UserRepository;
+import com.main.app.repository.*;
 import com.main.app.user.User;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,6 +20,9 @@ public class HomeController {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private TeamRepository teamRepository;
 
 	private User u = null;
 
@@ -46,9 +49,9 @@ public class HomeController {
 	}
 
 	// Logging action
-	@RequestMapping("/enterApp")
+	@RequestMapping("/principal")
 	public String enterApp(@RequestParam String email, @RequestParam String userPassword, HttpServletRequest req) {
-		log.info("enterApp()");
+		log.info("principal()");
 		List<User> list = userRepository.findUser(email, userPassword);
 
 		if (list.size() == 0) {
@@ -56,8 +59,9 @@ public class HomeController {
 			return "redirect:/";
 		}
 
-		log.info("Creating user object....");
+		userRepository.updateDate(email); // Update last used date on BBDD.
 
+		log.info("Creating user object....");
 		u = list.get(0);
 		log.info("Created " + u);
 
@@ -73,13 +77,12 @@ public class HomeController {
 	public String registerUser(@RequestParam String email, @RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
 		log.info("registerUser()");
 
-		if (userRepository.userExist(userName) > 0) {
-			log.error("User exists");
+		if (userRepository.userExist(email) > 0) {
+			log.error("User already exists");
 			return "redirect:/";
 		}
 
-		Integer id = userRepository.findAll().size() + 1;
-		userRepository.insert(userName, id, userPassword, email); // Registrar usuario.
+		userRepository.insert(userName, userPassword, email); // Registrar usuario.
 
 
 		return "WEB-INF/view/login.jsp";
