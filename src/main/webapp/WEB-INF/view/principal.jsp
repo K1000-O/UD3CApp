@@ -37,23 +37,18 @@
                 </div>
             </div>
 
-            <div class="team-list">
+            <div class="">
+                <form class="team-list" action="/team" method="post">
                 <%
-                    ArrayList<Team> lt = (ArrayList<Team>)request.getAttribute("teams");
+                    ArrayList<Team> lt = (ArrayList<Team>)session.getAttribute("teams");
 
                     for (Team t : lt) {
                 %>
-                        <button class="choose-team">
-                            <h1><%=t.getTeam()%></h1>
-                        </button>
+                        <input type="submit" name="team" value="<%=t.getTeam()%>" class="choose-team" />
                     <%
                     }
                     %>
-                <c:forEach items="teams" var="t">
-                    <button class="choose-team">
-                        <h1>${t}</h1>
-                    </button>
-                </c:forEach>
+                </form>
             </div>
 
         </div>
@@ -62,6 +57,7 @@
 
     <!-- Script -->
     <script type="text/javascript">
+
     </script>
 
 </body>

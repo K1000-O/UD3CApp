@@ -90,5 +90,13 @@ public class HomeController {
 
 		return "WEB-INF/view/login.jsp";
 	}
+
+	@RequestMapping("/team")
+	public String team(@RequestParam String team, HttpServletRequest req) {
+		log.info("team(): registered " + team);
+
+
+		return "WEB-INF/view/team.jsp";
+	}
     
 }
