@@ -35,7 +35,7 @@
             <div class="center-panel">
 
                 <div class="func">
-                    <a href="google.es" class="function-panel" >
+                    <a href="players" class="function-panel" >
                         <img src="../../public/plantillas/imgs/football-players.png"></img>
                         <h1>JUGADORES</h1>
                     </a>

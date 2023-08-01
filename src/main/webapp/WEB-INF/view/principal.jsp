@@ -42,10 +42,21 @@
                 <%
                     ArrayList<Team> lt = (ArrayList<Team>)session.getAttribute("teams");
 
-                    for (Team t : lt) {
-                %>
+                    if (lt.size() <= 0) {
+                        lt = (ArrayList<Team>)session.getAttribute("teamsNoCoach");%>
+
+                        <select class="select-team" name="team" id="teamChosen">
+                            <%for (Team t : lt) {%>
+                                <option value="<%=t.getTeam()%>"><%=t.getTeam()%></option>
+                            <%}%>
+                        </select>
+                        <input type="submit" class="select-teamBtn">
+
+                    <%} else {
+                        for (Team t : lt) {%>
                         <input type="submit" name="team" value="<%=t.getTeam()%>" class="choose-team" />
                     <%
+                        }
                     }
                     %>
                 </form>

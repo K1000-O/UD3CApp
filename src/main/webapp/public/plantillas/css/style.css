@@ -202,8 +202,6 @@ body {
     border-radius: 20px;
 }
 
-
-
 .team-list {
     display: flex;
     justify-content: center;
@@ -214,6 +212,28 @@ body {
     margin-top: 10px;
     height: fit-content;
 }
+
+.select-team {
+    width: 80%;
+    height: 80px;
+    margin: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.select-teamBtn {
+    width: 50%;
+    margin-bottom: 10px;
+    height: fit-content;
+    border-radius: inherit; 
+    cursor: pointer;
+    background-color: bisque;
+    border-style: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: lighter;
+    font-size: 40px;
+} 
 
 .choose-team {
     width: 80%;

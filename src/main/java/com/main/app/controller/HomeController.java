@@ -4,10 +4,12 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.gson.Gson;
 import com.main.app.repository.*;
 import com.main.app.user.Team;
 import com.main.app.user.User;
@@ -26,7 +28,14 @@ public class HomeController {
 	@Autowired
 	private TeamRepository teamRepository;
 
+	@Autowired
+	private PlayerRepository playerRepository;
+
 	private User u = null;
+
+	private Team t = null;
+
+	private HttpSession session;
 
     // INICIO - Inicio de la app
 	@RequestMapping("/")
@@ -49,6 +58,21 @@ public class HomeController {
 		
 		return "WEB-INF/view/register.jsp";
 	}
+	
+	@RequestMapping("/registerUser")
+	public String registerUser(@RequestParam String email, @RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
+		log.info("registerUser()");
+
+		if (userRepository.userExist(email) > 0) {
+			log.error("User already exists");
+			return "redirect:/";
+		}
+
+		userRepository.insert(userName, userPassword, email); // Registrar usuario.
+
+
+		return "WEB-INF/view/login.jsp";
+	}
 
 	// Logging action
 	@RequestMapping("/principal")
@@ -68,35 +92,40 @@ public class HomeController {
 		log.info("Created " + u);
 
 		// Envía datos al HTML.
-		HttpSession session = req.getSession();
+		session = req.getSession();
 		session.setAttribute("userName", u.getName());
 
 		session.setAttribute("teams", teamRepository.findTeams(u.getId()));
+		session.setAttribute("teamsNoCoach", teamRepository.findTeams());
 
 		return "WEB-INF/view/principal.jsp";
-	}
-
-	@RequestMapping("/registerUser")
-	public String registerUser(@RequestParam String email, @RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
-		log.info("registerUser()");
-
-		if (userRepository.userExist(email) > 0) {
-			log.error("User already exists");
-			return "redirect:/";
-		}
-
-		userRepository.insert(userName, userPassword, email); // Registrar usuario.
-
-
-		return "WEB-INF/view/login.jsp";
 	}
 
 	@RequestMapping("/team")
 	public String team(@RequestParam String team, HttpServletRequest req) {
 		log.info("team(): registered " + team);
 
+		if (teamRepository.teamHasCoach(team) == 0) {
+			teamRepository.addCoach(team, u.getId());
+		}
+
+		t = teamRepository.findTeams(u.getId()).get(0);
+
+		session = req.getSession();
+		session.setAttribute("team", team);
 
 		return "WEB-INF/view/team.jsp";
 	}
-    
+
+	@RequestMapping("/players")
+    public String players(HttpServletRequest req) {
+		log.info("Getting team players...");
+
+		session = req.getSession();
+
+		log.info(t.getTeam());
+		session.setAttribute("players", playerRepository.findPlayers(t.getTeam()));
+
+		return "WEB-INF/view/players.jsp";
+	}
 }
