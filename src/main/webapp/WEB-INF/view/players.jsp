@@ -9,6 +9,7 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoccerApp Principal </title>
 
     <!-- Utilizado para poder realizar JQuery -->
@@ -34,32 +35,31 @@
         </div>
 
         <div class="app-functions">
+               
+            <div class="player-center-panel">
 
-            <div class="center-panel">                
-                <div class="team-list">
-                    <div class="players-table">
-                        <table id="idPlayersTable">
-                            <th class="cabecera">
-                                <td>Nombre</td>
-                                <td>Apellido</td>
-                                <td>Equipo</td>
-                                <td>ID</td>
-                            </th>
-                            <% 
-                                ArrayList<Player> lt = (ArrayList<Player>)session.getAttribute("players");
-                                
-                                for (Player p : lt) {%>
-                                    <tr>
-                                        <td><%=p.getName()%></td>
-                                        <td><%=p.getSurname()%></td>
-                                        <td><%=p.getTeam()%></td>
-                                        <td><%=p.getId()%></td>
-                                    </tr>
-                                <%}%>
+                <div class="">
 
-                        </table>
-                    </div>
+                    <table class="players-table">
+                        <th class="cabecera"> NOMBRE </th>
+                        <th class="cabecera"> APELLIDO </th>
+                        <th class="cabecera"> ID </th>
+                        <% 
+                            ArrayList<Player> lt = (ArrayList<Player>)session.getAttribute("players");
+                            
+                            for (Player p : lt) {%>
+                                <tr>
+                                    <td><%=p.getName()%></td>
+                                    <td><%=p.getSurname()%></td>
+                                    <td style="text-align: right;"><%=p.getId()%></td>
+                                </tr>
+                            <%}%>
+                            
+                    </table>  
+
                 </div>
+
+                <button onclick="abrirVentana()" class="btn-players"> AÑADIR JUGADOR</button>
 
             </div>
 
@@ -69,6 +69,15 @@
 
     <!-- Script -->
     <script type="text/javascript">
+
+        function abrirVentana() {
+            var width = 500; // Ancho de la ventana
+            var height = 500; // Altura de la ventana
+            var left = (window.innerWidth / 2) - (width / 2); // Posición izquierda
+            var top = (window.innerHeight / 2) - (height / 2); // Posición superior
+            var ventana = window.open("addPlayer", "_blank", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top + ",resizable=no, scrollbars=no");
+
+        }
 
     </script>
 

@@ -257,10 +257,111 @@ body {
     PLAYERS.JSP
 
 */
-.players-table {
-    margin: 80%;
+.player-center-panel {
+    overflow: visible;
+    display: flex;  
+    flex-direction: column;
+    width: 80%; 
+    min-width: fit-content;
+    background-color: white; 
+    border-radius: 20px; 
+    margin: 80px;
+    align-items: center;
 }
 
-.cabecera  {
+.players-table {
+    overflow: visible;
+    padding: 20px;
+    border-spacing: 5px;
+}
+
+.players-table th {
+    padding: 20px;
+}
+
+.players-table td {
+    border: 1px solid black;
+    width: 200px;
+    padding: 10px;
+}
+
+.btn-players {
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    width: fit-content;
+    color: white;
+    cursor: pointer;
+    background-color: navy;
+}
+
+.btn-players:focus {
+    box-shadow: none !important;
+}
+
+.btn-players:hover {
+    background-color: indigo;
+}
+
+/**
+
+    ADDPLAYER.JSP
+
+*/
+
+.add-player-center-panel {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 80%;
     margin: 20px;
+    border-radius: 20px; 
+}
+
+.add-player {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-player-input {
+    padding: 10px;
+}
+
+.add-player-input h1{
+    text-align: center;
+    padding: 10px;
+    font-size: large;
+}
+
+.add-player-input input {
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 18px;
+    border: none;
+    outline: 1px solid black;
+    text-align: center;
+}
+
+.add-player button {
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px;
+    width: fit-content;
+    color: white;
+    cursor: pointer;
+    background-color: navy;    
+}
+
+.add-player button:focus {
+    box-shadow: none !important;
+}
+
+.add-player button:hover {
+    background-color: indigo;
 }

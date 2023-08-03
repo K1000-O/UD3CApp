@@ -6,7 +6,7 @@
     <div class="nav-list">
         <h1 style="text-align: center; padding-top:5%;"><%=session.getAttribute("team")%></h1>
         <ul class="nav-functions" style="list-style: none;">
-            <a href="#">
+            <a href="/players">
                 <li>
                     <div class="name"><img class="name-img" src="../../../public/plantillas/imgs/football-players.png" alt="">JUGADORES</div>
                     <div class="nav-img"></div>

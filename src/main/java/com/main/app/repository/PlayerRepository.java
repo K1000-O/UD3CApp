@@ -17,8 +17,8 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     @Modifying // Es un update/delete query.
     @Transactional // Uses for INSERT.
-    @Query(value = "INSERT INTO users(name, password, email, date_registration) VALUES (:userName, crypt(:pass, gen_salt('md5')), :email, now())", nativeQuery = true)
-    public abstract void insert(@Param("userName") String name, @Param("pass") String password, @Param("email") String email);
+    @Query(value = "INSERT INTO players(name, surname, team) VALUES (:name, :surname, :team)", nativeQuery = true)
+    public abstract void insert(@Param("name") String name, @Param("surname") String surname, @Param("team") String team);
 
     @Query(value = "SELECT * FROM players WHERE team=:team", nativeQuery = true)
     public abstract List<Player> findPlayers(@Param("team") String team);

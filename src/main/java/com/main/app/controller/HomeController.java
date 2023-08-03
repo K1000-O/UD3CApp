@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.main.app.repository.*;
 import com.main.app.user.Team;
@@ -126,5 +127,22 @@ public class HomeController {
 		session.setAttribute("players", playerRepository.findPlayers(t.getTeam()));
 
 		return "WEB-INF/view/players.jsp";
+	}
+
+	@RequestMapping("/addPlayer")
+    public String addPlayer() {
+		log.info("Creating add players...");
+
+		return "WEB-INF/view/addPlayer.jsp";
+	}
+
+	@RequestMapping("/addPlayerBBDD")
+	@ResponseBody
+    public String addPlayerBBDD(@RequestParam String name, @RequestParam String surname, HttpServletRequest req) {
+		log.info("Adding player...");
+
+		playerRepository.insert(name, surname, t.getTeam());
+
+		return "<script>window.opener.location.reload();window.close();</script>";
 	}
 }
