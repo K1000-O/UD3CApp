@@ -38,6 +38,16 @@
                             <h1>APELLIDO</h1>
                             <input type="text" name="surname" placeholder="Apellido" required>
                         </div>
+
+                        <div class="add-player-input">  
+                            <h1>POSICIÓN</h1>
+                            <input type="text" name="pos" placeholder="Posición">
+                        </div>
+
+                        <div class="add-player-input">  
+                            <h1>PIE</h1>
+                            <input type="text" name="foot" placeholder="Pie">
+                        </div>
                     </div>
                     <button type="submit"> AÑADIR JUGADOR</button>
                 </form>

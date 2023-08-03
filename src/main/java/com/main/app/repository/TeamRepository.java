@@ -23,6 +23,9 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
     @Query(value = "SELECT * FROM teams WHERE coach=:id", nativeQuery = true)
     public abstract List<Team> findTeams(@Param("id") Integer id);
 
+    @Query(value = "SELECT * FROM teams WHERE coach=:id AND team=:team", nativeQuery = true)
+    public abstract List<Team> findTeams(@Param("id") Integer id, @Param("team") String team);
+
     @Query(value = "SELECT * FROM teams WHERE coach IS NULL ORDER BY team DESC", nativeQuery = true)
     public abstract List<Team> findTeams();
 

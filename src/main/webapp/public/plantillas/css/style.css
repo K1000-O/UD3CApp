@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: rgb(188, 102, 102);
 }
@@ -20,7 +24,6 @@ body {
     background-color: white;
     min-width: inherit;
     height: 100%;
-    position: absolute;
 }
 
 .nav-functions {
@@ -68,6 +71,10 @@ body {
     text-align: center;
     padding-top: 5%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.wrapper {
+    display: flex; flex-wrap: nowrap; height: 100%;
 }
 
 .middle-box {
@@ -132,6 +139,7 @@ body {
 
 */
 .app-functions {
+    padding: 20px;
     display: flex; 
     justify-content: center;
     width: 100%;
@@ -144,7 +152,7 @@ body {
     border-radius: 20px; 
     justify-content: space-around; 
     flex-wrap: wrap; 
-    margin: 40px;
+    height: fit-content;
 }
 
 .func {
@@ -153,6 +161,7 @@ body {
     padding: 10px; 
     width: fit-content; 
     border-radius: 10px;
+    height: fit-content;
 }
 
 .function-panel {
@@ -189,6 +198,13 @@ body {
 .app-principal {
     display: flex;
     justify-content: center;
+    margin: 2%;
+    width: 80%;
+}
+
+.centro-principal {
+    display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     margin: 2%;
     width: 80%;
@@ -264,15 +280,14 @@ body {
     width: 80%; 
     min-width: fit-content;
     background-color: white; 
-    border-radius: 20px; 
-    margin: 80px;
+    border-radius: 20px;
     align-items: center;
+    height: fit-content;
 }
 
 .players-table {
     overflow: visible;
     padding: 20px;
-    border-spacing: 5px;
 }
 
 .players-table th {

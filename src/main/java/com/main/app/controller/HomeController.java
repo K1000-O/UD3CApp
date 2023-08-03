@@ -108,7 +108,7 @@ public class HomeController {
 			teamRepository.addCoach(team, u.getId());
 		}
 
-		t = teamRepository.findTeams(u.getId()).get(0);
+		t = teamRepository.findTeams(u.getId(), team).get(0);
 
 		session = req.getSession();
 		session.setAttribute("team", team);
@@ -138,10 +138,10 @@ public class HomeController {
 
 	@RequestMapping("/addPlayerBBDD")
 	@ResponseBody
-    public String addPlayerBBDD(@RequestParam String name, @RequestParam String surname, HttpServletRequest req) {
+    public String addPlayerBBDD(@RequestParam String name, @RequestParam String surname, @RequestParam String pos, @RequestParam String foot, HttpServletRequest req) {
 		log.info("Adding player...");
 
-		playerRepository.insert(name, surname, t.getTeam());
+		playerRepository.insert(name, surname, t.getTeam(), pos, foot);
 
 		return "<script>window.opener.location.reload();window.close();</script>";
 	}

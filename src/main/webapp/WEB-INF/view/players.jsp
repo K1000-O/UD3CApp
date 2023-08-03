@@ -26,7 +26,7 @@
     <jsp:include page="general/header.jsp"></jsp:include>
     <!-- MENÚ SUPERIOR -->
 
-    <div class="wrapper" style="display: flex; flex-wrap: nowrap;">
+    <div class="wrapper">
         
         <div class="principal-nav">
             <!-- MENÚ NAV -->
@@ -43,6 +43,8 @@
                     <table class="players-table">
                         <th class="cabecera"> NOMBRE </th>
                         <th class="cabecera"> APELLIDO </th>
+                        <th class="cabecera"> POSICION </th>
+                        <th class="cabecera"> PIE </th>
                         <th class="cabecera"> ID </th>
                         <% 
                             ArrayList<Player> lt = (ArrayList<Player>)session.getAttribute("players");
@@ -51,6 +53,8 @@
                                 <tr>
                                     <td><%=p.getName()%></td>
                                     <td><%=p.getSurname()%></td>
+                                    <td><%=p.getPos()%></td>
+                                    <td><%=p.getFoot()%></td>
                                     <td style="text-align: right;"><%=p.getId()%></td>
                                 </tr>
                             <%}%>
@@ -75,8 +79,8 @@
             var height = 500; // Altura de la ventana
             var left = (window.innerWidth / 2) - (width / 2); // Posición izquierda
             var top = (window.innerHeight / 2) - (height / 2); // Posición superior
-            var ventana = window.open("addPlayer", "_blank", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top + ",resizable=no, scrollbars=no");
-
+            var ventana = window.open("addPlayer", "_blank", "width=" + width + ",height=" + height + 
+                                        ",left=" + left + ",top=" + top + ",resizable=no, scrollbars=no");
         }
 
     </script>
