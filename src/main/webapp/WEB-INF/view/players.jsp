@@ -35,21 +35,18 @@
 
         <div class="app-functions">
 
-            <div class="center-panel">
-
-                <h1>TABLA DE JUGADORES</h1>
-                
-                <div class="players-table">
-                    <div>
+            <div class="center-panel">                
+                <div class="team-list">
+                    <div class="players-table">
                         <table id="idPlayersTable">
-                            <th>
+                            <th class="cabecera">
                                 <td>Nombre</td>
                                 <td>Apellido</td>
                                 <td>Equipo</td>
                                 <td>ID</td>
                             </th>
                             <% 
-                                List<?> lt = session.getAttribute("players");
+                                ArrayList<Player> lt = (ArrayList<Player>)session.getAttribute("players");
                                 
                                 for (Player p : lt) {%>
                                     <tr>
@@ -72,73 +69,6 @@
 
     <!-- Script -->
     <script type="text/javascript">
-
-        // DOCUMENT READY
-        $(document).ready( function () {
-
-            console.log("")
-
-            // Totalizadores errores
-            $('#idPlayersTable').DataTable({
-                ajax:{
-                    //${pageContext.request.contextPath}
-                    url:"getPlayers",
-                    contenType: "application/json",
-                    dataType:"json",
-                    type: "POST",
-                    dataSrc: function ( json ) { //URL: https://stackoverflow.com/questions/15786572/call-a-function-in-success-of-datatable-ajax-call
-                        return json; //URL: https://datatables.net/manual/ajax
-                    },
-                    error: function (xhr, error, thrown) { //URL: https://stackoverflow.com/questions/35475964/datatables-ajax-call-error-handle
-                        // Make your callback here.
-                        //_this.ajax_error(xhr, error, thrown);
-                    }	
-                },
-                //responsive: true,
-                //ordering: false,
-                order: [[ 0, 'asc' ]], // Orden alfabetico ascendente
-                columns: [
-                    {
-                        title:	"Nombre",
-                        data: 	"name",
-                        defaultContent: ""
-                    },
-                    {
-                        title:	"Apellido",
-                        data: 	"surname",
-                        defaultContent: ""
-                    },
-                    {
-                        title:	"Equipo",
-                        data: 	"team",
-                        defaultContent: ""
-                    },
-                    {
-                        title:	"ID",
-                        data: 	"id",
-                        defaultContent: ""
-                    }
-                ],
-                language: {
-                    url: "${pageContext.request.contextPath}/static/plantillas/inspinia_admin-v2.7.1/js/languages/Spanish.json"
-                },
-                select: 'single',
-                responsive: true,
-                buttons: [
-                    'anadir',
-                    'editar',
-                    'eliminar',
-                    {
-                        extend: 'csv', 
-                        text: 'Exportar a Excel',
-                        titleAttr: 'exportar a excel',
-                        fieldSeparator: ';'
-                    }
-                ]
-            });
-
-        } );
-        // FIN-Totalizadores errores
 
     </script>
 

@@ -4,12 +4,10 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.google.gson.Gson;
 import com.main.app.repository.*;
 import com.main.app.user.Team;
 import com.main.app.user.User;
@@ -124,6 +122,7 @@ public class HomeController {
 		session = req.getSession();
 
 		log.info(t.getTeam());
+		log.info(String.valueOf(playerRepository.findPlayers(t.getTeam()).size()));
 		session.setAttribute("players", playerRepository.findPlayers(t.getTeam()));
 
 		return "WEB-INF/view/players.jsp";

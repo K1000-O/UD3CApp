@@ -251,3 +251,16 @@ body {
 .team-list :hover {
     background-color: rgb(162, 206, 212);
 }
+
+/**
+
+    PLAYERS.JSP
+
+*/
+.players-table {
+    margin: 80%;
+}
+
+.cabecera  {
+    margin: 20px;
+}

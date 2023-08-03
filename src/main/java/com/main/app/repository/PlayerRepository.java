@@ -13,7 +13,7 @@ import com.main.app.user.*;
 import jakarta.transaction.Transactional;
 
 @EnableJpaRepositories
-public interface PlayerRepository extends JpaRepository<Team, Long> {
+public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     @Modifying // Es un update/delete query.
     @Transactional // Uses for INSERT.
