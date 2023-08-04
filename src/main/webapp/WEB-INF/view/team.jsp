@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="func">
-                    <a href="google.es" class="function-panel">
+                    <a href="calendar" class="function-panel">
                         <img src="../../public/plantillas/imgs/calendar.png"></img>
                         <h1>CALENDARIO</h1>
                     </a>

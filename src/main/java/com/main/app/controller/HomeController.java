@@ -1,14 +1,20 @@
 package com.main.app.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.w3c.dom.events.Event;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.main.app.repository.*;
 import com.main.app.user.Team;
 import com.main.app.user.User;
@@ -145,4 +151,26 @@ public class HomeController {
 
 		return "<script>window.opener.location.reload();window.close();</script>";
 	}
+
+	@RequestMapping("/calendar")
+    public String calendar() {
+		log.info("Creating add players...");
+
+		return "WEB-INF/view/calendar.jsp";
+	}
+
+
+
+
+
+	/**
+	 * Creating controller for calendar.
+	 */
+	@RequestMapping("/api/events")
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
+    Iterable<Event> events(@RequestParam("start") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime start, @RequestParam("end") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime end) {
+		EventRepository er;
+
+        return er.findBetween(start, end);
+    }
 }

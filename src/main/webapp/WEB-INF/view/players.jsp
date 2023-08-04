@@ -14,7 +14,6 @@
 
     <!-- Utilizado para poder realizar JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src=""></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="public/plantillas/css/style.css">
