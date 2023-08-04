@@ -10,6 +10,7 @@
 
     <meta charset="UTF-8">
     <title>SoccerApp Principal </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Utilizado para poder realizar JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

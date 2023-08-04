@@ -18,12 +18,8 @@
 
 <body>
 
-    <!-- MENÚ SUPERIOR -->
-    <jsp:include page="general/header.jsp"></jsp:include>
-    <!-- MENÚ SUPERIOR -->
-
     <div class="wrapper" style="display: flex; flex-wrap: nowrap;">
-        <div class="app-functions">
+        <div>
                
             <div class="add-player-center-panel">
 
@@ -59,4 +55,5 @@
     </div>
 
 </body>
+
 </html>

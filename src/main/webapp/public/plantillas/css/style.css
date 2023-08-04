@@ -74,7 +74,10 @@ body {
 }
 
 .wrapper {
-    display: flex; flex-wrap: nowrap; height: 100%;
+    display: flex; 
+    flex-wrap: nowrap; 
+    justify-content: center;
+    height: 100%;
 }
 
 .middle-box {
@@ -139,6 +142,7 @@ body {
 
 */
 .app-functions {
+    overflow: auto;
     padding: 20px;
     display: flex; 
     justify-content: center;
@@ -283,11 +287,14 @@ body {
     border-radius: 20px;
     align-items: center;
     height: fit-content;
+    padding: 20px;
 }
 
 .players-table {
+    text-align: center;
     overflow: visible;
-    padding: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 .players-table th {
@@ -295,15 +302,18 @@ body {
 }
 
 .players-table td {
-    border: 1px solid black;
     width: 200px;
     padding: 10px;
+}
+
+.players-table tr:nth-child(even) {
+    background-color: rgb(255, 227, 194);
 }
 
 .btn-players {
     border-radius: 10px;
     font-size: 20px;
-    margin-bottom: 10px;
+    margin: 10px;
     width: fit-content;
     color: white;
     cursor: pointer;
@@ -340,6 +350,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: fit-content;
 }
 
 .add-player-input {

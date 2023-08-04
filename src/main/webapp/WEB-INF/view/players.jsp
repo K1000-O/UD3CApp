@@ -14,6 +14,7 @@
 
     <!-- Utilizado para poder realizar JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src=""></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="public/plantillas/css/style.css">
@@ -40,7 +41,7 @@
 
                 <div class="">
 
-                    <table class="players-table">
+                    <table class="players-table" id="playersTable">
                         <th class="cabecera"> NOMBRE </th>
                         <th class="cabecera"> APELLIDO </th>
                         <th class="cabecera"> POSICION </th>
@@ -64,7 +65,7 @@
                 </div>
 
                 <button onclick="abrirVentana()" class="btn-players"> AÑADIR JUGADOR</button>
-
+                
             </div>
 
         </div>
@@ -76,11 +77,11 @@
 
         function abrirVentana() {
             var width = 500; // Ancho de la ventana
-            var height = 500; // Altura de la ventana
+            var height = 550; // Altura de la ventana
             var left = (window.innerWidth / 2) - (width / 2); // Posición izquierda
             var top = (window.innerHeight / 2) - (height / 2); // Posición superior
             var ventana = window.open("addPlayer", "_blank", "width=" + width + ",height=" + height + 
-                                        ",left=" + left + ",top=" + top + ",resizable=no, scrollbars=no");
+                                        ",left=" + left + ",top=" + top + ",resizable=no, toolbar=no, scrollbars=no");
         }
 
     </script>
