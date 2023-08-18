@@ -11,12 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.w3c.dom.events.Event;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.main.app.repository.*;
-import com.main.app.user.Team;
+import com.main.app.user.*;
 import com.main.app.user.User;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -36,6 +35,9 @@ public class HomeController {
 	@Autowired
 	private PlayerRepository playerRepository;
 
+	@Autowired
+	private EventRepository eventRepository;
+
 	private User u = null;
 
 	private Team t = null;
@@ -45,28 +47,28 @@ public class HomeController {
     // INICIO - Inicio de la app
 	@RequestMapping("/")
 	public String inicio() {
-		log.info("inicio()");
+		log.info("[OK] inicio()");
 		
 		return "index.jsp";
 	}
 
 	@RequestMapping("/login")
 	public String login() {
-		log.info("login()");
+		log.info("[OK] login()");
 		
 		return "WEB-INF/view/login.jsp";
 	}
 
 	@RequestMapping("/register")
 	public String register() {
-		log.info("register()");
+		log.info("[OK] register()");
 		
 		return "WEB-INF/view/register.jsp";
 	}
 	
 	@RequestMapping("/registerUser")
 	public String registerUser(@RequestParam String email, @RequestParam String userName, @RequestParam String userPassword, HttpServletRequest req) {
-		log.info("registerUser()");
+		log.info("[OK] registerUser()");
 
 		if (userRepository.userExist(email) > 0) {
 			log.error("User already exists");
@@ -82,7 +84,7 @@ public class HomeController {
 	// Logging action
 	@RequestMapping("/principal")
 	public String enterApp(@RequestParam String email, @RequestParam String userPassword, HttpServletRequest req) {
-		log.info("principal()");
+		log.info("[OK] principal()");
 		List<User> list = userRepository.findUser(email, userPassword);
 
 		if (list.size() == 0) {
@@ -92,7 +94,7 @@ public class HomeController {
 
 		userRepository.updateDate(email); // Update last used date on BBDD.
 
-		log.info("Creating user object....");
+		log.info("[OK] Creating user object....");
 		u = list.get(0);
 		log.info("Created " + u);
 
@@ -108,7 +110,7 @@ public class HomeController {
 
 	@RequestMapping("/team")
 	public String team(@RequestParam String team, HttpServletRequest req) {
-		log.info("team(): registered " + team);
+		log.info("[OK] team(): registered " + team);
 
 		if (teamRepository.teamHasCoach(team) == 0) {
 			teamRepository.addCoach(team, u.getId());
@@ -124,7 +126,7 @@ public class HomeController {
 
 	@RequestMapping("/players")
     public String players(HttpServletRequest req) {
-		log.info("Getting team players...");
+		log.info("[OK] Getting team players...");
 
 		session = req.getSession();
 
@@ -137,7 +139,7 @@ public class HomeController {
 
 	@RequestMapping("/addPlayer")
     public String addPlayer() {
-		log.info("Creating add players...");
+		log.info("[OK] Creating add players...");
 
 		return "WEB-INF/view/addPlayer.jsp";
 	}
@@ -145,32 +147,21 @@ public class HomeController {
 	@RequestMapping("/addPlayerBBDD")
 	@ResponseBody
     public String addPlayerBBDD(@RequestParam String name, @RequestParam String surname, @RequestParam String pos, @RequestParam String foot, HttpServletRequest req) {
-		log.info("Adding player...");
+		log.info("[OK] Adding player...");
 
 		playerRepository.insert(name, surname, t.getTeam(), pos, foot);
 
 		return "<script>window.opener.location.reload();window.close();</script>";
 	}
 
+
+	/**
+	 * Calendar mapping.
+	 */
 	@RequestMapping("/calendar")
     public String calendar() {
-		log.info("Creating add players...");
+		log.info("[OK] Creating calendar...");
 
 		return "WEB-INF/view/calendar.jsp";
 	}
-
-
-
-
-
-	/**
-	 * Creating controller for calendar.
-	 */
-	@RequestMapping("/api/events")
-	@JsonSerialize(using = LocalDateTimeSerializer.class)
-    Iterable<Event> events(@RequestParam("start") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime start, @RequestParam("end") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime end) {
-		EventRepository er;
-
-        return er.findBetween(start, end);
-    }
 }

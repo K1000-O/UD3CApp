@@ -14,7 +14,6 @@
 
     <!-- Utilizado para poder realizar JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="public/plantillas/js/daypilot-all.min.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="public/plantillas/css/style.css">
@@ -37,7 +36,27 @@
 
         <div class="app-functions">
 
-            <div id="dp"></div>
+            <div class="calendar">
+
+                <table class="month-calendar">
+                    <thead>
+                        <tr>
+                            <th colapsan="7" id="calendarTitle"> </th>
+                        </tr>
+                        <tr>
+                            <th>LUNES</th>
+                            <th>MARTES</th>
+                            <th>MIÉRCOLES</th>
+                            <th>JUEVES</th>
+                            <th>VIERNES</th>
+                            <th>SÁBADO</th>
+                            <th>DOMINGO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body"></tbody>
+                </table>
+
+            </div>
 
         </div>
 
@@ -46,13 +65,6 @@
     <!-- Script -->
     <script type="text/javascript">
         
-        $(document).ready(function() {
-            const calendar = new DayPilot.Month("dp");
-            calendar.init();
-
-            calendar.events.load("/api/events");
-        });
-
     </script>
 
 </body>
