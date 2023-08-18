@@ -41,7 +41,7 @@
                 <table class="month-calendar">
                     <thead>
                         <tr>
-                            <th colapsan="7" id="calendarTitle"> </th>
+                            <th colspan="7" id="calendarTitle"></th>
                         </tr>
                         <tr>
                             <th>LUNES</th>
@@ -56,6 +56,11 @@
                     <tbody id="calendar-body"></tbody>
                 </table>
 
+                <div class="buttons" style="padding-top: 20px; padding-left: 20px; padding-right: 20px; display: flex; justify-content: space-between;">
+                    <button onclick="previousMonth()" class="movement-button"> < </button>
+                    <button onclick="nextMonth()" class="movement-button"> > </button>
+                </div>
+
             </div>
 
         </div>
@@ -64,6 +69,84 @@
 
     <!-- Script -->
     <script type="text/javascript">
+
+        const months = ["January", "February", "March", "April", "May", 
+            "June", "July", "August", "September", "October", "November", "December"];
+
+        // Variables of actual date.
+        let today = new Date();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+
+        // Render the calendar.
+        function renderCalendar() {
+            let calendarBody = document.getElementById("calendar-body");
+            calendarBody.innerHTML = "";
+
+            document.getElementById("calendarTitle").innerHTML = months[month] + " " + year;
+
+            let firstDay = new Date(year, month, 1).getDay();
+            let numberOfDays = new Date(year, month + 1, 0).getDate(); // Number of days in the month. The 0 gets number of the last day of previous month.
+
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                let row = document.createElement("tr");
+
+                for (let j = 0; j < 7; j++) {
+                    if (date > numberOfDays)
+                        break;
+
+                    if (i === 0 && j < firstDay) { // Si son las primeras celdas sin número:
+                        let cell = document.createElement("td");
+                        cell.classList.add("empty");
+                        row.appendChild(cell);
+                    } else {
+                        let cell = document.createElement("td");
+                        let numberDiv = document.createElement("div");
+                        let eventDiv = document.createElement("div");
+                        eventDiv.classList.add("event-div");
+
+                        numberDiv.textContent = date;
+
+                        cell.appendChild(numberDiv);
+                        cell.appendChild(eventDiv);
+
+                        if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                            cell.classList.add("today");
+                        }
+
+                        row.appendChild(cell);
+                        date++;
+                    }
+                }
+
+                calendarBody.appendChild(row);
+            }
+        }
+
+        function previousMonth() {
+            if (month === 0) {
+                month = 11;
+                year--;
+            } else {
+                month--;
+            }
+
+            renderCalendar();
+        }
+
+        function nextMonth() {
+            if (month === 11) {
+                month = 0;
+                year++;
+            } else {
+                month++;
+            }
+
+            renderCalendar();
+        }
+
+        renderCalendar();
         
     </script>
 

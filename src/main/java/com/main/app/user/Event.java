@@ -1,7 +1,6 @@
 package com.main.app.user;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
 import lombok.Data;

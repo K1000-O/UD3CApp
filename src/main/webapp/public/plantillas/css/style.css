@@ -142,7 +142,6 @@ body {
 
 */
 .app-functions {
-    overflow: auto;
     padding: 20px;
     display: flex; 
     justify-content: center;
@@ -390,4 +389,62 @@ body {
 
 .add-player button:hover {
     background-color: indigo;
+}
+
+/**
+*
+*   CALENDAR.JSP
+*
+*/
+.calendar {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    min-height: fit-content;
+}
+
+.month-calendar {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.month-calendar td {
+    width: 14.29%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.month-calendar th {
+    padding: 10px;
+}
+
+.month-calendar #calendarTitle {
+    font-size: x-large;
+    padding: 0;
+}
+
+.month-calendar .today {
+    background-color: rgb(255, 227, 194);
+}
+
+.month-calendar .empty {
+    background-color: rgb(223, 223, 223);
+
+}
+
+.month-calendar .event-div {
+    height: 70%;
+    padding: 10px;
+}
+
+.movement-button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    border-color: blanchedalmond;
+    cursor: pointer;
 }
