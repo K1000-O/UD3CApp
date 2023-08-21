@@ -8,12 +8,12 @@
         <h1 class="logo-name" style="color: white;margin: 0;">SOCCERAPP</h1>
     </div>
 
-    <a href="/login" class="user-data" style="display: flex; align-items: center; justify-content: flex-end; 
-        flex-direction: column; margin:20px; padding: 10px;
-        cursor:pointer; text-decoration:none; border-style: double; border-color: white; height: fit-content;"> <!-- Añadir ::hover cambira color obscuro.-->
+    <a href="/login" class="user-data" style="display: flex; align-items: center; justify-content: center; 
+        flex-direction: column; margin-right:20px;
+        cursor:pointer;"> <!-- Añadir ::hover cambira color obscuro.-->
         
-        <img src="../../public/plantillas/imgs/user.png" style="height: 50px;">
-        <h1 class="user-name"  style="color: white; font-size: medium; padding-top: 10px;"> <%= session.getAttribute("userName") %> </h1>
+        <div style="height: 100px; width: 100px; border-radius: 50%; background-color: white; background-image: url('../../public/plantillas/imgs/carta_entrenador_grande.jpg'); background-size: cover; background-position: center;"></div>
+        <!-- <h1 class="user-name"  style="color: white; font-size: medium; padding-top: 10px;"> <%= session.getAttribute("userName") %> </h1> -->
 
     </a>
 

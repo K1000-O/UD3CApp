@@ -14,7 +14,32 @@
 
     <!-- Utilizado para poder realizar JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
+    <style> /* Estilo para la superposicion */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+            backdrop-filter: blur(5px); /* Desenfoque del fondo */
+            display: none; /* Ocultar inicialmente */
+          }
+          
+          #overlayContent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+          }
+          
+          #closeButton {
+            margin-top: 10px;
+          }
+          
+    </style>
     <!-- CSS -->
     <link rel="stylesheet" href="public/plantillas/css/style.css">
     
@@ -67,6 +92,13 @@
 
     </div>
 
+    <div id="overlay">
+    <div id="overlayContent">
+        <!-- Contenido del elemento superpuesto -->
+        <button id="closeButton">Cerrar</button>
+    </div>
+    </div>
+
     <!-- Script -->
     <script type="text/javascript">
 
@@ -102,14 +134,19 @@
                         row.appendChild(cell);
                     } else {
                         let cell = document.createElement("td");
+                        let eventButton = document.createElement("button");
                         let numberDiv = document.createElement("div");
                         let eventDiv = document.createElement("div");
+
+                        eventButton.id = "myButton";
                         eventDiv.classList.add("event-div");
 
                         numberDiv.textContent = date;
 
-                        cell.appendChild(numberDiv);
-                        cell.appendChild(eventDiv);
+                        eventButton.appendChild(numberDiv);
+                        eventButton.appendChild(eventDiv);
+                        cell.appendChild(eventButton);
+                        cell.id = date;
 
                         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                             cell.classList.add("today");
@@ -147,6 +184,15 @@
         }
 
         renderCalendar();
+
+        // When button clicked, open the overlay
+        document.getElementById('myButton').addEventListener('click', function() {
+            document.getElementById('overlay').style.display = 'block';
+        });
+
+        document.getElementById('closeButton').addEventListener('click', function() {
+            document.getElementById('overlay').style.display = 'none';
+        });
         
     </script>
 
