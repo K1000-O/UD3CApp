@@ -24,21 +24,21 @@
             background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
             backdrop-filter: blur(5px); /* Desenfoque del fondo */
             display: none; /* Ocultar inicialmente */
-          }
-          
-          #overlayContent {
+        }
+        
+        #overlayContent {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: white;
             padding: 20px;
-          }
-          
-          #closeButton {
+        }
+    
+        #closeButton {
             margin-top: 10px;
-          }
-          
+        }
+
     </style>
     <!-- CSS -->
     <link rel="stylesheet" href="public/plantillas/css/style.css">
@@ -101,6 +101,7 @@
 
     <!-- Script -->
     <script type="text/javascript">
+        // RENDER CALENDAR
 
         const months = ["January", "February", "March", "April", "May", 
             "June", "July", "August", "September", "October", "November", "December"];
@@ -138,7 +139,9 @@
                         let numberDiv = document.createElement("div");
                         let eventDiv = document.createElement("div");
 
-                        eventButton.id = "myButton";
+                        eventButton.onclick = function() {
+                                document.getElementById('overlay').style.display = 'block';
+                            };
                         eventDiv.classList.add("event-div");
 
                         numberDiv.textContent = date;
@@ -185,13 +188,11 @@
 
         renderCalendar();
 
-        // When button clicked, open the overlay
-        document.getElementById('myButton').addEventListener('click', function() {
-            document.getElementById('overlay').style.display = 'block';
-        });
-
-        document.getElementById('closeButton').addEventListener('click', function() {
-            document.getElementById('overlay').style.display = 'none';
+        
+        $(document).ready(function() {
+            $("#closeButton").click(function() {
+                document.getElementById('overlay').style.display = 'none';
+            });
         });
         
     </script>
