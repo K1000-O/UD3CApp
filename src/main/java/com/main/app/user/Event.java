@@ -16,4 +16,20 @@ public class Event {
     private Date start;
     private Date end;
     private Integer coach;
+    private EventType type;
+}
+
+enum EventType {
+    MATCH("MATCH"),
+    TRAINNING("TRAINNING");
+
+    private String eventType;
+
+    EventType(String eventType) {
+        this.eventType = eventType;
+    }
+
+    public String getEventType() {
+        return eventType;
+    }
 }

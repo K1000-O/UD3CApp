@@ -24,15 +24,19 @@
             background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
             backdrop-filter: blur(5px); /* Desenfoque del fondo */
             display: none; /* Ocultar inicialmente */
+            justify-content: center;
+            align-items: center;
         }
         
         #overlayContent {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             background-color: white;
             padding: 20px;
+            width: 400px;
+            height: 400px;
         }
     
         #closeButton {
@@ -94,6 +98,9 @@
 
     <div id="overlay">
     <div id="overlayContent">
+
+        <jsp:include page="event.jsp"></jsp:include>
+
         <!-- Contenido del elemento superpuesto -->
         <button id="closeButton">Cerrar</button>
     </div>
@@ -140,7 +147,7 @@
                         let eventDiv = document.createElement("div");
 
                         eventButton.onclick = function() {
-                                document.getElementById('overlay').style.display = 'block';
+                                document.getElementById('overlay').style.display = 'flex';
                             };
                         eventDiv.classList.add("event-div");
 
